@@ -53,18 +53,18 @@
 <body onload="disconnect()">
 <div>
     <div>
-        <input type="text" id="from" placeholder="Kullanici Adi"/>
+        <input type="text" id="from" placeholder="User Name"/>
     </div>
     <br />
     <div>
-        <button id="connect" onclick="connect();">Baglan</button>
+        <button id="connect" onclick="connect();">Connect</button>
         <button id="disconnect" disabled="disabled" onclick="disconnect();">
-            Cikis
+            Exit
         </button>
     </div>
     <br />
     <div id="conversationDiv">
-        <input type="text" id="text" placeholder="Mesaj.."/>
+        <input type="text" id="text" placeholder="Message.."/>
         <button id="sendMessage" onclick="sendMessage();">Send</button>
         <p id="response"></p>
     </div>
