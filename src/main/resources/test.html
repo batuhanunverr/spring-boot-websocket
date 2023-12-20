@@ -3,6 +3,43 @@
     <title>Chat WebSocket</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        .chat-container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .chat-inputs {
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-inputs input[type="text"], .chat-inputs button {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        #response {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        #response p {
+            margin: 5px 0;
+        }
+    </style>
     <script type="text/javascript">
         var stompClient = null;
         var baseAddress = 'http://localhost:8080';
@@ -51,24 +88,17 @@
     </script>
 </head>
 <body onload="disconnect()">
-<div>
-    <div>
+<div class="chat-container">
+    <div class="chat-inputs">
         <input type="text" id="from" placeholder="User Name"/>
-    </div>
-    <br />
-    <div>
         <button id="connect" onclick="connect();">Connect</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">
-            Exit
-        </button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">Exit</button>
     </div>
-    <br />
     <div id="conversationDiv">
         <input type="text" id="text" placeholder="Message.."/>
         <button id="sendMessage" onclick="sendMessage();">Send</button>
-        <p id="response"></p>
+        <div id="response"></div>
     </div>
 </div>
-
 </body>
 </html>
